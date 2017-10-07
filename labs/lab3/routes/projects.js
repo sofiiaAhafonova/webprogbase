@@ -6,7 +6,7 @@ let storage = require("./../projects");
 
 
 //storage.getAll().then(res => proj = res)
-storage.writeFile()
+storage.readFile()
     .then(data=> proj_arr = data);
 router.get("/", (req, res, next) => {
     res.render("projects", { proj_arr});
@@ -15,7 +15,8 @@ router.get("/", (req, res, next) => {
 router.get("/:project_id(\\d+)",
     (req, res) => {
         let id = req.params.id;
-        let project =  proj_arr.get(id - 1);
+        let project;
+        storage.getById(id).then(resolve => project = resolve);
         res.render("project", {project});
     });
 
