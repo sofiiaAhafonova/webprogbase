@@ -61,7 +61,7 @@ let project = {
         name: {
             description: "Enter a project name",
 			type: "string",
-            pattern: /^[a-zA-Z0-9]+$/,
+            pattern: /\w+/g,
             message: "Name must be only letters",
             required: true
         },
@@ -78,7 +78,7 @@ let project = {
 		team: {
 			description: "Enter your team name",
 			type: "string",
-            pattern: /^[a-zA-Z0-9]+$/,
+            pattern: /\w+/g,
             required: true
 		},
 		man_hour: {
@@ -148,6 +148,10 @@ function inputField(proj){
                     break;
                 case "team":
                     proj.team = result.toChange;
+                    resolve(proj);
+                    break;
+                case "status":
+                    proj.status = result.toChange;
                     resolve(proj);
                     break;
                 case "man_hour":
