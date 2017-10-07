@@ -50,13 +50,10 @@ function getAll() {
 }
 
 function getById(proj_id) {
-    let response = null;
-    console.log(proj_id);
-
+    let response = null
     proj_arr.forEach((value) => {
         if (value.id == proj_id)  response = value;
     });
-    console.log(response);
     return new Promise((resolve, reject) => {
         if (proj_id < 0 || response == null) reject("Wrong id");
         if (proj_arr.lenght <= 0) reject("Array is empty");

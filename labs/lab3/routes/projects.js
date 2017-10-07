@@ -16,7 +16,6 @@ router.get("/:project_id(\\d+)",
     (req, res) => {
         let id = req.params.project_id;
         let project;
-        console.log(id);
        storage.getById(id).then(project => res.render("project", {project}));
     });
 
