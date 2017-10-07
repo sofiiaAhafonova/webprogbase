@@ -14,10 +14,10 @@ router.get("/", (req, res, next) => {
 
 router.get("/:project_id(\\d+)",
     (req, res) => {
-        let id = req.params.id;
+        let id = req.params.project_id;
         let project;
-        storage.getById(id).then(resolve => project = resolve);
-        res.render("project", {project});
+        console.log(id);
+       storage.getById(id).then(project => res.render("project", {project}));
     });
 
 module.exports = router;

@@ -16,8 +16,6 @@ function fileReader() {
     const promise = fs.readFile("projects.json");
     promise.then(fileText => {
         proj_arr = JSON.parse(fileText);
-    }).catch(() => {
-        return;
     });
 }
 
