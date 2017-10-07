@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Projects</title>
+  <meta name="description" content="User`s boardlist">
+  <meta name="author" content="Ahafonova Sofiia">
+  <link type="text/css" href="stylesheets/style.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="topnav" id="myTopnav">
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+  </div>
+  <div class="main">  
+     <h1 id="C0">Personal projects</h1>
+  <div class="projects">
+  
+    <% for (let s of proj) { %>
+      <a href=  <%=s.name%>  <img src=<%=s.image%> < alt=  <%=s.name%>< ></a>
+      <h2><a href = <%=s.id%> > <%=s.name%></a></h2>
+    <% } %>  
+  </div>
+    <h3><a href="#C0">Move up</a></h3>
+  </div>
+</body>
+</html>
