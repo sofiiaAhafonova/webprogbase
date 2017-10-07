@@ -1,7 +1,8 @@
 const fs = require("fs-promise");
 
-let proj_arr = [];
+
 let gen_id = 0;
+
 fileReader();
 
 function fileWriter() {
@@ -88,12 +89,19 @@ function remove(proj_id) {
         resolve(proj_id);
     });
 }
-
+function writeFile(){
+    return new Promise((resolve, reject) => {
+        fs.readFile("projects.json")
+        .then(fileText => JSON.parse(fileText.toString()));
+        
+    });
+}
 module.exports = {
     create,
     getAll,
     getById,
     update,
 	remove,
-	makeId
+    makeId,
+    writeFile
 }
