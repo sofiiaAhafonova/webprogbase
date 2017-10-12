@@ -2,22 +2,7 @@ const fs = require("fs-promise");
 
 let proj_arr = [];
 let gen_id = 0;
-fileReader();
 
-function fileWriter() {
-  		fs.writeFile("projects.json",
-        JSON.stringify(proj_arr, null, 4),
-        (err) => {
-            if (err) throw err;
-        });
-}
- 
-function fileReader() {
-    const promise = fs.readFile("projects.json");
-    promise.then(fileText => {
-        proj_arr = JSON.parse(fileText);
-    });
-}
 
 function  makeId() {
 	gen_id++;
@@ -32,59 +17,46 @@ function  makeId() {
     return gen_id; 
 }
 function create(projectBuf) {
-    return new Promise((resolve, reject) => {
-        proj_arr.push(projectBuf);
-        fileWriter();
-        resolve(projectBuf);
-        });
+    return  getAll()
+    .then(arr => arr.push(projectBuf))
+    .then(arr => fs.writeFile("projects.json",
+    JSON.stringify(arr, null, 4)));
 }
 
 function getAll() {
-    return new Promise((resolve, reject) => {
-        if (proj_arr.length !== 0) resolve(proj_arr);
-        else reject("Empty");
-    });
+    return fs.readFile('projects.json')
+        .then(x => JSON.parse(x));
 }
 
 function getById(proj_id) {
-    let response = null;
-    proj_arr.forEach((value) => {
-        if (value.id == proj_id)  response = value;
-    });
-    return new Promise((resolve, reject) => {
-        if (proj_id < 0 || response == null) reject("Wrong id");
-        if (proj_arr.lenght <= 0) reject("Array is empty");
-        resolve(response);
+    return getAll()
+    .then(arr => {
+        let index = arr.findIndex(el => el.id === proj_id);
+        if (index > -1) 
+            return Promise.resolve(arr[index]);
+        else
+            return Promise.reject("Wrong id");
     });
 }
 
 function update(proj_update) {
-	proj_arr.forEach((proj) => {
-        if (proj.id == proj_update.id) {
-            response = proj_arr.indexOf(proj);
-        }
-    });
-    return new Promise((resolve, reject) => {
-		proj_arr.splice(response, 1, proj_update);
-		fileWriter();
-		resolve(proj_update.id);
-	});
+    return getAll()
+    .then(arr => {
+        let index = arr.findIndex(el => el.id === proj_update.id);
+        arr.splice(index, 1, proj_update);
+    })
+    .then(arr => fs.writeFile("projects.json",
+    JSON.stringify(arr, null, 4)));
 }
  
 function remove(proj_id) {
-    let response = null;
-    proj_arr.forEach((proj) => {
-        if (proj.id == proj_id) {
-            response = proj_arr.indexOf(proj);
-        }
-    });
-    return new Promise((resolve, reject) => {
-        if (proj_id < 0 || response == null) reject("Wrong id");
-        if (proj_arr.lenght === 0) reject("Array is empty");
-        proj_arr.splice(response,1);
-        fileWriter();
-        resolve(proj_id);
-    });
+    return getAll()
+    .then(arr => {
+        let index = arr.findIndex(el => el.id === proj_id);
+        arr.splice(index,1);
+    })
+    .then(arr => fs.writeFile("projects.json",
+    JSON.stringify(arr, null, 4)));
 }
 
 module.exports = {

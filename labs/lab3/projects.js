@@ -89,13 +89,6 @@ function remove(proj_id) {
         resolve(proj_id);
     });
 }
-function readFile(){
-    return new Promise((resolve, reject) => {
-        fs.readFile("projects.json")
-        .then(fileText => JSON.parse(fileText.toString()));
-        
-    });
-}
 module.exports = {
     create,
     getAll,
