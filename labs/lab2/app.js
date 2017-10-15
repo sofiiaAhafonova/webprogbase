@@ -11,36 +11,44 @@ process.stdin.on("readable", () => {
    if (input !== null) {
        let command = input.toString().trim();
        if (command === "create()") {
-           inputProject()
-           .then(proj_new => projects.create(proj_new))
-           .then((proj_new) => console.log(proj_new));
+		   inputProject()
+		   .then(proj_new => {
+			   console.log(proj_new);
+			   return (proj_new);
+			}).then(proj_new => projects.create(proj_new));
        }
        else if (command === "getAll()") {
            projects.getAll()
-           .then(returnedString => console.log(returnedString), 
-                 error => console.log(error))
-           .then(askQuestion());
+           		.then(returnedString => console.log(returnedString))
+           		.catch(err => console.log(err));
        }
        else if (command.search(regExpGetById) !== -1) {
            const number = command.toString().trim().match(regExpNumber);
            projects.getById(number)
-           .then(returnedString => console.log(returnedString),  
-                 error => console.log(error))
-            .then(askQuestion());
+		   		.then(returnedString => console.log(returnedString))
+				   .catch(err => {	
+					   if (!err) 
+							console.log("wrong id");
+						});
        }
        else if (command.search(regExpUpdate) !== -1) {
            const number = command.toString().trim().match(regExpNumber);
            projects.getById(number).then(update => inputField(update))
            .then(result => projects.update(result))
-            .then(id => console.log('Element with id ' + id + ' was updated'),
-                  error => console.log(error))
-            .then(askQuestion());
+			.then(id => console.log('Element with id ' + number + ' was updated'))
+			.catch(err => {	
+				if (!err) 
+					 console.log("wrong id");
+				 });
        }
        else if (command.search(regExpRemove) !== -1) {
            const number = command.toString().trim().match(regExpNumber);
-           projects.remove(number).then(returnedInt => {
-               console.log('Element with id ' + returnedInt + ' was removed');
-           },  error => console.log(error)).then(askQuestion());
+           projects.remove(number).then(returned => {
+               console.log('Element with id ' + number + ' was removed');
+           }).catch(err => {	
+			if (!err) 
+				 console.log("wrong id");
+			 });
        }
        else
             askQuestion();
@@ -118,7 +126,7 @@ function inputProject() {
         prompt.get(project,
             (err, result) => {
                 const projectBuf = {
-                    id: projects.makeId(),
+                    id: 0,
                     name: result.name,
                     description: result.description,
                     status: result.status,
@@ -167,7 +175,7 @@ function inputField(proj){
                     resolve(proj);
                     break;
                 default:
-                    reject("Error");
+                    reject("Wrong field name");
                     break;
             }
         });
