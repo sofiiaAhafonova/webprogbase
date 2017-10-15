@@ -58,5 +58,38 @@
         "start_date": "2017-02-14",
         "finish_date": "2017-06-24",
         "image": "./images/quadrocopter.png"
+    },
+    {
+        "id": 6,
+        "name": "sixth",
+        "description": "earert",
+        "status": "eawerstdt",
+        "team": "eawsdgj",
+        "man_hour": "223",
+        "rating": "2.2",
+        "start_date": "1111-11-11",
+        "finish_date": "1111-11-11"
+    },
+    {
+        "id": 7,
+        "name": "\tdfgg",
+        "description": "eawrsdfg",
+        "status": "aesrdf",
+        "team": "wesdfg",
+        "man_hour": "3",
+        "rating": "3.3",
+        "start_date": "1231-11-11",
+        "finish_date": "1111-11-11"
+    },
+    {
+        "id": 8,
+        "name": "asedtfm",
+        "description": "waerdfgcvh",
+        "status": "dfxvbmn",
+        "team": "ghn",
+        "man_hour": "234",
+        "rating": "1.1",
+        "start_date": "1111-11-11",
+        "finish_date": "1112-11-11"
     }
 ]

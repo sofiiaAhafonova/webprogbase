@@ -12,13 +12,10 @@ router.get("/", (req, res, next) => {
 router.get("/:project_id(\\d+)",
     (req, res) => {
         let id = req.params.project_id;
-        let project;
-       storage.getById(id).then(project =>{
-           if (project == null) 
-                res.sendStatus(404);
-           else 
-                res.render("project", {project});
-       } ).catch(err => res.sendStatus(500));;
+       storage.getById(id)
+        .then(project => res.render("project", {project}),
+        err => res.sendStatus(404))
+        .catch(err => res.sendStatus(500));
     });
 
 module.exports = router;
