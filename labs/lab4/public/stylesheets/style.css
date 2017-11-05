@@ -75,6 +75,9 @@ ul {
     text-decoration: none;
     font-size: 17px;
 }
+.topnav second{
+    float: right;
+}
 .topnav button {
     float: left;
     display: block;
