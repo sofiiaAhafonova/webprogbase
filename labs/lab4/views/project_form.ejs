@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Create Project</title>
+
+  <meta name="author" content="Ahafonova Sofiia">
+  <link type="text/css" href="../stylesheets/style.css" rel="stylesheet" />
+</head>
+<body>
+  <% include menu_bar.ejs%>
+  <div class="main">  
+  <div class="projects">
+      <h1 id="C0">Create new project</h1>
+      <form action="demo_post_enctype.asp" method="post" enctype="multipart/form-data">
+      <table>
+        <tr>
+          <td> Project logo: </td>
+          <td>
+            <input type="file" name="img">
+          </td>
+        </tr>
+         <tr>
+          <td> Project Name: </td>
+          <td>
+             <input type="text" name="proj name">
+          </td>
+        </tr>
+         <tr> 
+         <td> Project Description:</td>
+          <td> 
+          <textarea name = "description" rows="10" cols="30">Project Description</textarea>
+          </td>
+        </tr>
+         <tr>
+          <td> Status:</td>
+          <td>
+              <input type="radio" name="status" value="Finished" checked> Finished 
+              <input type="radio" name="status" value="Unfinished"> Unfinished
+           </td>
+        </tr>
+         <tr>
+          <td>  Team:</td>
+          <td>
+             <input type="text" name="team name">
+          </td>
+        </tr>
+         <tr>
+          <td> Man-Hour: </td>
+          <td>
+            <input type="number" name="manhour" min="0">
+          </td>
+        </tr>
+         <tr>
+          <td> Rating: </td>
+          <td>
+             <input type="number" pattern = " /^[1-5][.][0-9]$/" name="rating" >
+          </td>
+        </tr>
+         <tr>
+          <td>  Start Date:</td>
+          <td>
+            <input type="date" name="start date">
+          </td>
+        </tr>
+          <tr>
+          <td> Finish Date:</td>
+          <td>
+              <input type="date" name="finish date"><br>
+          </td>
+        </tr>
+        <tr> 
+        <td></td>
+        <td><input type="submit" value="Submit">  
+        </tr>
+       
+      </form>
+
+  </div>
+  </div>
+</body>
+</html>

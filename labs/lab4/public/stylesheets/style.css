@@ -75,6 +75,26 @@ ul {
     text-decoration: none;
     font-size: 17px;
 }
+.topnav button {
+    float: left;
+    display: block;
+    color: #ECC760;;
+    background-color: rgb(66, 61, 60);
+    text-align: center;
+    padding: 7px 16px;
+    text-decoration: none;
+    font-size: 15px;
+    margin-top:6px;
+}
+.topnav input {
+    float: left;
+    margin-top:6px;
+    display: block;
+    background-color: rgb(247, 241, 224);
+    padding: 7px 16px;
+    text-decoration: none;
+    font-size: 15px;
+}
 
 .topnav a:hover {
     color: #ECC760;;

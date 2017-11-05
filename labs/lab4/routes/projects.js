@@ -1,7 +1,7 @@
 let express = require("express");
 let router = express.Router();
 
-let storage = require("./../projects");
+let storage = require("./../modules/projects");
 
 router.get("/", (req, res, next) => {
     storage.getAll()
