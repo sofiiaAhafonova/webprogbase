@@ -1,11 +1,6 @@
 let express = require("express");
 let router = express.Router();
 let storage = require("./../modules/projects");
-router.use(express.static("public"));
-
-var bodyParser = require('body-parser');
-router.use(bodyParser.json()); // support json encoded bodies
-router.use(bodyParser.urlencoded({ extended: true }))
 
 router.get("/", (req, res, next) => {
     storage.getAll()
@@ -15,19 +10,18 @@ router.get("/", (req, res, next) => {
 
 router.post('/post_enctype.asp', function(req, res){
     if(!req.body) return res.sendStatus(400);
-    let new_proj = storage.project;
-    console.log(req.body);
-  
-
-    // new_proj.description = req.body.description;
-    // new_proj. status = req.body.status;
-    // new_proj.team =  req.body.team;
-    // new_proj.man_hour =  req.body.man_hour;
-    // new_proj.rating =  req.body.rating;
-    // new_proj.start_date =  req.body.start_date;
-    // new_proj.finish_date =  req.body.finish_date;
-
+    let new_proj = {name : req.body.projName,
+    description : req.body.projDescription,
+   status : req.body.projStatus,
+   team :  req.body.teamName,
+   man_hour :  req.body.manhour,
+    rating :  req.body.projRating,
+    start_date :  req.body.startDate,
+   finish_date :  req.body.finishDate,
+   image : req.body.img
+}
+   
     storage.create(new_proj)
-     .then(data => res.send("recieved your request! \n" + data));
+     .then(data => res.send("recieved your request! \n"));
  });
 module.exports = router;

@@ -6,12 +6,17 @@ const projects = require("./routes/projects");
 const project_form = require("./routes/project_form");
 const search = require("./routes/search");
 
-// app.use(express.static("public"));
-// var bodyParser = require('body-parser');
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({
-//     extended: false
-// }));
+var bodyParser = require('body-parser');
+var multer  = require('multer');
+const COLLECTION_NAME = 'images';
+const UPLOAD_PATH = 'uploads';
+const upload = multer({ dest: `${UPLOAD_PATH}/` });
+
+app.use(bodyParser.json()); 
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(upload.array()); 
+app.use(express.static('public'));
+
 app.get("/", (req, res) => {
     try {
           res.render("index",{});

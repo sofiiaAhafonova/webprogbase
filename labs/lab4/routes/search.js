@@ -2,15 +2,6 @@ let express = require("express");
 let router = express.Router();
 
 let storage = require("./../modules/projects");
-var bodyParser = require('body-parser');
-var multer = require('multer');
-var upload = multer();
-
-
-router.use(bodyParser.json()); 
-router.use(bodyParser.urlencoded({ extended: true }));
-router.use(upload.array()); 
-router.use(express.static('public'));
 
 
 router.get("/", (req, res) => {

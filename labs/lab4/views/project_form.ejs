@@ -23,20 +23,20 @@
          <tr>
           <th> Project Name: </th>
           <td>
-             <input type="text" name="projectName" required="required" pattern = "\w+">
+             <input type="text" name="projName" required="required" pattern = "\w+">
           </td>
         </tr>
          <tr> 
          <th> Project Description:</th>
           <td> 
-          <textarea name = "projectDescription" rows="10" cols="30" >Project Description</textarea>
+          <textarea name = "projDescription" rows="10" cols="30" >Project Description</textarea>
           </td>
         </tr>
          <tr>
           <th> Status:</th>
           <td>
-              <input type="radio" name="projectStatus" value="Finished" checked> Finished 
-              <input type="radio" name="projectStatus" value="Unfinished"> Unfinished
+              <input type="radio" name="projStatus" value="Finished" checked> Finished 
+              <input type="radio" name="projStatus" value="Unfinished"> Unfinished
            </td>
         </tr>
          <tr>
@@ -54,7 +54,7 @@
          <tr>
           <th> Rating: </th>
           <td>
-             <input type="text" pattern = "^[1-5][.][0-9]$" name="projectRating" >
+             <input type="text" pattern = "^[1-5][.][0-9]$" name="projRating" >
           </td>
         </tr>
          <tr>
@@ -71,7 +71,7 @@
         </tr>
         <tr> 
         <td></td>
-        <td><input type="submit" value="Submit" formmethod="post" >  
+        <td><input type="submit" value="Submit">  
         </tr>
        
       </form>
