@@ -4,14 +4,14 @@ var express = require('express')
 app.set("view engine", "ejs");
 const projects = require("./routes/projects");
 const project_form = require("./routes/project_form");
+const search = require("./routes/search");
 
-var bodyParser = require('body-parser');
-app.use(bodyParser.json()); // support json encoded bodies
-app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
-
-
-app.use(express.static("public"));
-
+// app.use(express.static("public"));
+// var bodyParser = require('body-parser');
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({
+//     extended: false
+// }));
 app.get("/", (req, res) => {
     try {
           res.render("index",{});
@@ -22,14 +22,8 @@ app.get("/", (req, res) => {
 });
 
 app.use("/projects", projects);
-
-app.use('/project_form', bodyParser.urlencoded({
-    extended: true
-}));
-
-app.post('/project_form', function(req, res, next) {
-    console.dir(req.body);
-});
+app.use("/project_form", project_form);
+app.use("/search", search);
 
 app.listen(8080, () => console.log("UP!"));
 
