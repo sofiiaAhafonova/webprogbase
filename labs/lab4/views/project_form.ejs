@@ -23,7 +23,7 @@
          <tr>
           <th> Project Name: </th>
           <td>
-             <input type="text" name="projName" required="required" pattern = "\w+">
+             <input type="text" name="projName" required="required" pattern = "^[a-zA-Z\s]*$">
           </td>
         </tr>
          <tr> 
@@ -42,31 +42,31 @@
          <tr>
           <th>  Team:</th>
           <td>
-             <input type="text" name="teamName" pattern = "\w+">
+             <input type="text" name="teamName" pattern = "^[a-zA-Z\s]*$" required="required">
           </td>
         </tr>
          <tr>
           <th> Man-Hour: </th>
           <td>
-            <input type="number" name="manhour" min="0" max = "2000">
+            <input type="number" name="manhour" min="1" max = "2000" value = "1" >
           </td>
         </tr>
          <tr>
           <th> Rating: </th>
           <td>
-             <input type="text" pattern = "^[1-5][.][0-9]$" name="projRating" >
+             <input type="text" pattern = "^[1-5][.][0-9]$" name="projRating" value = "1.0">
           </td>
         </tr>
          <tr>
           <th>  Start Date:</th>
           <td>
-            <input type="date" name="startDate">
+            <input type="date" name="startDate" value="2017-06-01">
           </td>
         </tr>
           <tr>
           <th> Finish Date:</th>
           <td>
-              <input type="date" name="finishDate"><br>
+              <input type="date" name="finishDate" value="2017-06-01"><br>
           </td>
         </tr>
         <tr> 

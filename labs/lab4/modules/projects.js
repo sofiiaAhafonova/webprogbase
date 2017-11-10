@@ -18,7 +18,21 @@ function getAll() {
     return fs.readFile('projects.json')
         .then(x => JSON.parse(x));
 }
-
+function getByName(proj_name){
+    return  getAll()
+    .then(arr => {
+        let new_arr;
+        for (let s of proj_arr)
+        {
+            if (s.name.indexOf(name) >= 0)
+                new_arr.push(s);
+        }
+        if (new_arr.length > 0)
+            return (new_arr);
+        else
+            return Promise.reject(null);
+    });
+}
 function getById(proj_id) {
     return getAll()
         .then(arr => {
@@ -121,5 +135,6 @@ module.exports = {
     getById,
     update,
     remove,
-    project
+    project,
+    getByName
 }

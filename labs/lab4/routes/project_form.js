@@ -19,9 +19,11 @@ router.post('/post_enctype.asp', function(req, res){
     start_date :  req.body.startDate,
    finish_date :  req.body.finishDate,
    image : req.body.img
-}
-   
+    }
     storage.create(new_proj)
-     .then(data => res.send("recieved your request! \n"));
+        .then(data =>{
+            let path = "/projects/" +  new_proj.id;
+            res.redirect(path);
+        });
  });
 module.exports = router;

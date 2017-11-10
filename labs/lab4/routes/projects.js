@@ -17,5 +17,11 @@ router.get("/:project_id(\\d+)",
         err => res.sendStatus(404))
         .catch(err => res.sendStatus(500));
     });
-
+router.post("/:project_id(\\d+)/remove",
+    (req, res) => {
+        let id = req.params.project_id;
+       storage.remove(id)
+        .then(project => res.redirect("/projects"))
+        .catch(err => res.sendStatus(500));
+    });
 module.exports = router;

@@ -5,17 +5,12 @@ let storage = require("./../modules/projects");
 
 
 router.get("/", (req, res) => {
+    let search_name = req.query.searchedName.toLowerCase();
     storage.getAll()
+    .then(proj_arr => proj_arr.filter(cur => cur.name.toLowerCase().indexOf(search_name) >= 0 ))
     .then(data => res.render("search", { proj_arr: data}))
     .catch(err => res.sendStatus(500));
 });
 
-router.get("/?:search_data(\w+/g)", (req, res) => {
-    let name = req.params.search_data;
-    console.log(name);
-    storage.getAll()
-    .then(arr => arr.filter(x => x.name.indexOf(name)))
-    .then(proj_arr =>res.render("search",{proj_arr:data}));
-});
 
 module.exports = router;

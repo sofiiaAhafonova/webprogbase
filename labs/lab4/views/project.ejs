@@ -43,6 +43,9 @@
               <td><time><%= project.finish_date %></time></td>
             </tr>
           </table>
+          <form action="<%=project.id%>/remove" method="post">
+              <input type = "submit" name = "Remove" >
+          </form>
   </div>
   </div>
 </body>
