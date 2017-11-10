@@ -1,17 +1,5 @@
 [
     {
-        "id": 1,
-        "name": "Red Right Hand",
-        "description": "The Arduino robotic arm and the glove with flex sensors",
-        "status": "Finished",
-        "team": "Saskke",
-        "man_hour": "500",
-        "rating": "4.7",
-        "start_date": "2017-02-12",
-        "finish_date": "2017-05-12",
-        "image": "./images/red-right-hand.png"
-    },
-    {
         "id": 2,
         "name": "Apella",
         "description": "This is Apella chat. A simple and usefull app for communication.",
@@ -58,5 +46,16 @@
         "start_date": "2017-02-14",
         "finish_date": "2017-06-24",
         "image": "./images/quadrocopter.png"
+    },
+    {
+        "name": "fgn",
+        "description": "Project Description",
+        "status": "Finished",
+        "team": "sdf",
+        "man_hour": "1",
+        "rating": "1.0",
+        "start_date": "2017-06-01",
+        "finish_date": "2017-06-01",
+        "id": 6
     }
 ]
