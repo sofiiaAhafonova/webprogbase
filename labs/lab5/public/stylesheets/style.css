@@ -152,3 +152,21 @@ td, th {
     text-decoration-color: #312D2C; 
     font-size: 17px;
 }
+.pagination {
+    display: inline-block;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+.pagination a.active {
+    background-color: rgb(56, 53, 52);
+    color: rgb(247, 241, 224);
+}
+
+.pagination a:hover:not(.active) {background-color: rgb(29, 27, 27);
+    color:  rgb(247, 241, 224);
+}

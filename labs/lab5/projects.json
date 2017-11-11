@@ -48,14 +48,15 @@
         "image": "./images/quadrocopter.png"
     },
     {
-        "name": "fgn",
+        "name": "test",
         "description": "Project Description",
         "status": "Finished",
-        "team": "sdf",
+        "team": "rew",
         "man_hour": "1",
         "rating": "1.0",
         "start_date": "2017-06-01",
         "finish_date": "2017-06-01",
-        "id": 6
+        "image": "./images/test.jpeg",
+        "id": 7
     }
 ]

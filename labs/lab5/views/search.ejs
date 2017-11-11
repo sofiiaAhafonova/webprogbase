@@ -20,8 +20,8 @@
           <% }
             for (let s of proj_arr) { %>
           <div class="projects">
-          <a href = "localhost:8080/projects/<%=s.id%>"><img src="<%= s.image %>"></a>
-          <h2><a href = "localhost:8080/projects/<%=s.id%>"><%=s.name%></a></h2>
+          <a href = "projects/<%=s.id%>"><img src="<%= s.image %>"></a>
+          <h2><a href = "projects/<%=s.id%>"><%=s.name%></a></h2>
         </div>
     <% } %>  
 </ul>

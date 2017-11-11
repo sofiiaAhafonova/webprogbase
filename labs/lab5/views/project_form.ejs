@@ -17,7 +17,7 @@
         <tr>
           <th> Project logo: </th>
           <td>
-            <input type="file" name="img"  accept="image/*" >
+            <input type="file" name="logo"  accept="image/*"  required="required">
           </td>
         </tr>
          <tr>
@@ -42,7 +42,7 @@
          <tr>
           <th>  Team:</th>
           <td>
-             <input type="text" name="teamName" pattern = "^[a-zA-Z\s]*$" required="required">
+             <input type="text" name="teamName" required="required">
           </td>
         </tr>
          <tr>
@@ -60,7 +60,7 @@
          <tr>
           <th>  Start Date:</th>
           <td>
-            <input type="date" name="startDate" value="2017-06-01">
+            <input type="date" name="startDate" value="2017-06-01"  required="required">
           </td>
         </tr>
           <tr>
@@ -73,9 +73,11 @@
         <td></td>
         <td><input type="submit" value="Submit">  
         </tr>
-       
       </form>
-
+        <%if (errors) 
+          for (let error of errors) { %>
+          <h2> <% error.msg %></h2>
+          <% } %>  
   </div>
   </div>
 </body>
