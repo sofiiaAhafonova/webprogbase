@@ -43,22 +43,22 @@ router.post('/post_enctype.asp', function(req, res){
     if(errors) {
         res.render('project_form', {errors: errors});
     } else {
-        // function checkName(name)
-        // {
-        //      return storage.getAll()
-        //         .then(arr =>{
-        //             for (el in arr)
-        //                 if (el.name == name)
-        //                     return 1;
-        //             return 0;
-        //         });
-        // }
-        // if (!checkName(new_proj.name))
-        //     res.render('project_form', {errors: "Project with this name exists"});
-        // else
+        function checkName(name)
+        {
+             return storage.getAll()
+                .then(arr =>{
+                    for (el in arr)
+                        if (el.name == name)
+                            return 1;
+                    return 0;
+                });
+        }
+        if (checkName(new_proj.name))
+            res.render('project_form', {errors: ["Project with this name exists"]});
+        else
             storage.create(new_proj)
-                .fs.writeFile("public/images/" + new_proj.name + type,new Buffer(base64String, 'base64'))
-                    .then(() => res.redirect( "/projects/" +  new_proj.id))
+                .then(() => fs.writeFile("public/images/" + new_proj.name + type,new Buffer(base64String, 'base64')))
+                .then(() => res.redirect( "/projects/" +  new_proj.id))
     }
 
    

@@ -60,15 +60,15 @@
         "id": 6
     },
     {
-        "name": "new",
+        "name": "Apella",
         "description": "Project Description",
         "status": "Finished",
-        "team": "my",
+        "team": "fdf",
         "man_hour": "1",
         "rating": "1.0",
         "start_date": "2017-06-01",
         "finish_date": "2017-06-01",
-        "image": "./images/new.jpeg",
+        "image": "./images/Apella.jpeg",
         "id": 7
     }
 ]
