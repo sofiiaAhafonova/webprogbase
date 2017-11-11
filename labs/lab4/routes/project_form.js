@@ -5,7 +5,7 @@ const fs = require("fs-promise");
 
 router.get("/", (req, res, next) => {
     storage.getAll()
-        .then(data => res.render("project_form", {}))
+        .then(data => res.render("project_form", {errors:null}))
         .catch(err => res.sendStatus(500));
 });
 
@@ -15,6 +15,20 @@ router.post('/post_enctype.asp', function(req, res){
     let logo = req.files.logo;
     let type ="." + logo.mimetype.substring(6);
     let base64String = logo.data.toString('base64');
+       
+    req.checkBody('projName', 'projName must be specified.').notEmpty(); 
+    req.checkBody('teamName', 'teamName name must be specified.').notEmpty();
+    req.checkBody('startDate', 'startDate name must be specified.').notEmpty();
+
+
+    req.sanitize('projName').escape();
+    req.sanitize('teamName').escape();
+    req.sanitize('projDescription').escape();
+    req.sanitize('projName').trim();     
+    req.sanitize('teamName').trim();
+
+
+    var errors = req.validationErrors();
     let new_proj = {
         name : req.body.projName,
         description : req.body.projDescription,
@@ -26,15 +40,28 @@ router.post('/post_enctype.asp', function(req, res){
         finish_date :  req.body.finishDate,
         image : "./images/" + req.body.projName + type
     }
- 
-    storage.getAll()
-    .then(arr => storage.makeId(arr))
-    .then(id =>fs.writeFile("public/images/" + new_proj.name + type,new Buffer(base64String, 'base64'))); 
-    
-    storage.create(new_proj)
-        .then(data =>{
-            let path = "/projects/" +  new_proj.id;
-            res.redirect(path);
-        });
+    if(errors) {
+        res.render('project_form', {errors: errors});
+    } else {
+        // function checkName(name)
+        // {
+        //      return storage.getAll()
+        //         .then(arr =>{
+        //             for (el in arr)
+        //                 if (el.name == name)
+        //                     return 1;
+        //             return 0;
+        //         });
+        // }
+        // if (!checkName(new_proj.name))
+        //     res.render('project_form', {errors: "Project with this name exists"});
+        // else
+            storage.create(new_proj)
+                .fs.writeFile("public/images/" + new_proj.name + type,new Buffer(base64String, 'base64'))
+                    .then(() => res.redirect( "/projects/" +  new_proj.id))
+    }
+
+   
+
  });
 module.exports = router;

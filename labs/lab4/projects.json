@@ -58,5 +58,17 @@
         "finish_date": "2017-06-01",
         "image": "./images/Red Right HAnd.png",
         "id": 6
+    },
+    {
+        "name": "new",
+        "description": "Project Description",
+        "status": "Finished",
+        "team": "my",
+        "man_hour": "1",
+        "rating": "1.0",
+        "start_date": "2017-06-01",
+        "finish_date": "2017-06-01",
+        "image": "./images/new.jpeg",
+        "id": 7
     }
 ]

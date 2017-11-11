@@ -73,9 +73,11 @@
         <td></td>
         <td><input type="submit" value="Submit">  
         </tr>
-       
       </form>
-
+        <%if (errors) 
+          for (let s of errors) { %>
+          <h2> <% error.msg %></h2>
+          <% } %>  
   </div>
   </div>
 </body>
