@@ -48,14 +48,15 @@
         "image": "./images/quadrocopter.png"
     },
     {
-        "name": "fgn",
-        "description": "Project Description",
+        "name": "Red Right HAnd",
+        "description": "The best",
         "status": "Finished",
-        "team": "sdf",
-        "man_hour": "1",
-        "rating": "1.0",
-        "start_date": "2017-06-01",
+        "team": "Saskke",
+        "man_hour": "100",
+        "rating": "5.0",
+        "start_date": "2017-02-15",
         "finish_date": "2017-06-01",
+        "image": "./images/Red Right HAnd.png",
         "id": 6
     }
 ]

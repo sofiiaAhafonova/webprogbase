@@ -136,5 +136,5 @@ module.exports = {
     update,
     remove,
     project,
-    getByName
+    makeId
 }

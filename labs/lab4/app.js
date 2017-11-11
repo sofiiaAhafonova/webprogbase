@@ -7,15 +7,14 @@ const project_form = require("./routes/project_form");
 const search = require("./routes/search");
 
 var bodyParser = require('body-parser');
-var multer  = require('multer');
-const COLLECTION_NAME = 'images';
-const UPLOAD_PATH = 'uploads';
-const upload = multer({ dest: `${UPLOAD_PATH}/` });
+
+const busboyBodyParser = require('busboy-body-parser');
 
 app.use(bodyParser.json()); 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(upload.array()); 
+
 app.use(express.static('public'));
+app.use(busboyBodyParser({ limit: '5mb' }));
 
 app.get("/", (req, res) => {
     try {
