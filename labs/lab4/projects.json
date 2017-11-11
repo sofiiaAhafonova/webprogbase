@@ -58,17 +58,5 @@
         "finish_date": "2017-06-01",
         "image": "./images/Red Right HAnd.png",
         "id": 6
-    },
-    {
-        "name": "Apella",
-        "description": "Project Description",
-        "status": "Finished",
-        "team": "fdf",
-        "man_hour": "1",
-        "rating": "1.0",
-        "start_date": "2017-06-01",
-        "finish_date": "2017-06-01",
-        "image": "./images/Apella.jpeg",
-        "id": 7
     }
 ]

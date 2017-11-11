@@ -24,9 +24,6 @@ router.post('/post_enctype.asp', function(req, res){
     req.sanitize('projName').escape();
     req.sanitize('teamName').escape();
     req.sanitize('projDescription').escape();
-    req.sanitize('projName').trim();     
-    req.sanitize('teamName').trim();
-
 
     var errors = req.validationErrors();
     let new_proj = {
@@ -43,22 +40,18 @@ router.post('/post_enctype.asp', function(req, res){
     if(errors) {
         res.render('project_form', {errors: errors});
     } else {
-        function checkName(name)
-        {
-             return storage.getAll()
-                .then(arr =>{
-                    for (el in arr)
-                        if (el.name == name)
-                            return 1;
-                    return 0;
-                });
-        }
-        if (checkName(new_proj.name))
-            res.render('project_form', {errors: ["Project with this name exists"]});
-        else
-            storage.create(new_proj)
-                .then(() => fs.writeFile("public/images/" + new_proj.name + type,new Buffer(base64String, 'base64')))
-                .then(() => res.redirect( "/projects/" +  new_proj.id))
+        storage.getAll()
+            .then(arr => arr.findIndex(pr => pr.name == new_proj.name) != -1)
+            .then(ex =>{
+                if (ex)
+                        res.render('project_form', {errors: ["Project with this name exists"]});
+                else
+                    storage.create(new_proj)
+                        .then(() => fs.writeFile("public/images/" + new_proj.name + type,new Buffer(base64String, 'base64')))
+                        .then(() => res.redirect( "/projects/" +  new_proj.id))
+                })
+        
+       
     }
 
    
