@@ -25,6 +25,17 @@ app.get("/", (req, res) => {
         res.send(error.message);   
     }
 });
+//database
+let mongoose = require('mongoose')
+mongoose.connect(process.env.MONGODB_URI, {
+  useMongoClient: true
+});
+mongoose.Promise = global.Promise;
+let db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function () {
+  console.log('Connected to mongodb successfully.');
+})
 
 app.use("/projects", projects);
 app.use("/project_form", project_form);
