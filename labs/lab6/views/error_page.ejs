@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <% include partials/head.ejs%>
+  <title>Error</title>
+</head>
+<body>
+  <% include partials/menu_bar.ejs%>
+  <div class="main">
+    <div class="projects">
+    <%for (error in errors) {%>
+      <h1><%=error%></h1>
+    <%}%>
+    </div>
+  </div>
+</body>
+</html>
