@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+   <% include partials/head.ejs%>
+  <title>Profile</title>
+</head>
+<body>
+ <% include partials/menu_bar.ejs%>
+  <div class="main">  
+  <div class="projects">
+  <div class="users">
+    <h2><%=profileOwner.name%></h2>
+    <table>
+      <tr>
+        <th>Email</th>
+        <td><%=profileOwner.email%></td>
+      </tr>
+      <%if(profileOwner.name == user.name){%>
+        <form   action="profile/own/update">
+        <tr>
+          <td> <button type="submit">Update</button> </td>
+        </tr>
+        <form>
+      <%}%>
+    </table>
+  </div>
+  </div>
+  </div>
+</body>
+</html>
