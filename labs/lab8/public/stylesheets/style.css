@@ -1,0 +1,196 @@
+div.projects {
+    color: #312D2C;
+    background-image: url("../images/background/wrinkled-paper.jpg");
+    margin: 20px 20%;
+    padding: 20px;
+    text-align: center;
+    align-items: center;
+    overflow: initial;
+    text-overflow: initial;
+    -webkit-box-shadow: 1px 0px 32px 19px rgba(56, 36, 21, 0.71);
+    -moz-box-shadow: 1px 0px 32px 19px rgba(56, 36, 21, 0.71);
+    box-shadow: 1px 0px 32px 19px rgba(56, 36, 21, 0.71);
+}
+
+.projects img {
+    display: block;
+    margin: auto;
+    max-width: 70%;
+    max-height: 200px;
+    padding-top:30px;
+  
+}
+
+.projects table {
+    margin: auto;
+    max-width: 95%;
+    margin-left: 15%;
+}
+.projects th, td{
+    width: 50%;
+}
+
+
+a:link {
+    color: #312D2C;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #312D2C;
+    background-color: transparent;
+}
+
+a:hover {
+    color: #237988;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:active {
+    color: #237988;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+h1 {
+    font-family: Verdana, "Geneva", sans-serif;
+    text-decoration-color: #312D2C;
+   
+}
+
+h2 {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    text-decoration-color: #312D2C;
+    
+}
+
+h3 {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    text-decoration-color: #312D2C;
+}
+
+ul {
+    list-style-type: none;
+}
+.mybtn 
+{
+    color: #ECC760;
+    background-color: rgb(66, 61, 60);
+    text-align: center;
+    padding: 7px 16px;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+button {
+
+    text-align: center;
+    padding: 7px 16px;
+    text-decoration: none;
+    padding: 7px 16px;
+    font-size: 15px;  
+}
+
+
+
+
+
+body {
+    align-items: center;
+    text-align: center;
+    background-image: url("../images/background/w.jpg");
+}
+
+.main {
+    margin-top: 70px;
+}
+
+table {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    text-decoration-color: #312D2C;
+    width: 100%;
+    margin-top: 20px;
+}
+
+td,
+th {
+    border: none;
+    text-align: left;
+    padding: 10px;
+}
+
+#searchbox {
+    /* width: 500px;*/
+    height: 35px;
+    padding: 2px;
+    float: left;
+    /*overflow: hidden; Clear floats */
+}
+
+#field {
+    overflow: hidden;
+}
+
+#search {
+    width: 100%;
+    border-radius: 4px;
+    font-size: 17px;
+    padding: 30px 70px 30px 70px;
+    text-decoration-color: #312D2C;
+}
+
+
+.pagination {
+    display: inline-block;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+.pagination a.active {
+    background-color: rgb(56, 53, 52);
+    color: rgb(247, 241, 224);
+}
+
+.pagination a:hover:not(.active) {
+    background-color: rgb(29, 27, 27);
+    color: rgb(247, 241, 224);
+}
+
+.users {
+    text-align: center;
+    font-size: 24px;
+}
+
+textarea {
+    resize: none;
+}
+.footer {
+    background-color: rgb(56, 53, 52);
+    position: relative;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    margin: 20px 0 0;
+    color: rgb(247, 241, 224);
+    line-height: 24px;
+ }
+ .index footer{
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+ }
+ .footer a {
+    color: rgb(247, 241, 224);
+}
+ .footer a:hover:not(.active) {
+    color: rgb(247, 241, 224);
+}
